@@ -1,18 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome</h1>
-    </header>
-    <main>
-        <button onclick="window.location.href='register.html'">Register</button>
-        <button onclick="window.location.href='login.html'">Login</button>
-    </main>
-</body>
-</html>
+<!-- Add this to index.html or a new page -->
+
+<div class="menu">
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <div id="dropdown" class="dropdown-content">
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Blogs</a>
+        <a href="#">Online Courses</a>
+        <a href="#">Support</a>
+    </div>
+</div>
+
+<!-- Dropdown menu styles (CSS) -->
+<style>
+/* Add this to style.css */
+.menu {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+.menu-button {
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-width: 200px;
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #575757;
+}
+
+.menu.open .dropdown-content {
+    display: block;
+}
+</style>
