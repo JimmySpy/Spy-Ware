@@ -1,42 +1,38 @@
+<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <!-- Video background -->
+    <div class="video-background">
+        <video autoplay muted loop id="video-bg">
+            <source src="background.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
+
+    <!-- Login Form -->
+    <div class="login-container">
         <h1>Login</h1>
-    </header>
-    <main>
-        <form id="loginForm">
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" required>
-
-            <button type="submit">Login</button>
+        <form action="index.html" method="POST">
+            <input type="email" placeholder="Enter your Email" name="email" required>
+            <input type="password" placeholder="Enter your Password" name="password" required>
+            <button type="submit" class="start-button">Start</button>
         </form>
-        <p id="errorMessage" style="color: red;"></p>
-    </main>
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            const users = JSON.parse(localStorage.getItem("users")) || [];
+    </div>
 
-            const user = users.find(user => user.email === email && user.password === password);
+    <!-- Support Button -->
+    <div class="support">
+        <button>Support</button>
+    </div>
 
-            if (user) {
-                window.location.href = "about.html";
-            } else {
-                document.getElementById("errorMessage").textContent = "Invalid email or password.";
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
