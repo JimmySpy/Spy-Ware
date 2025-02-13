@@ -1,43 +1,43 @@
+<!-- register.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Register</h1>
-    </header>
-    <main>
-        <form id="registerForm">
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
+    <div class="video-background">
+        <video autoplay muted loop id="video-bg">
+            <source src="background.mp4" type="video/mp4">
+        </video>
+    </div>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" required>
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
 
-            <button type="submit">Register</button>
+    <div class="signup-container">
+        <h1>Sign Up</h1>
+        <form action="index.html" method="POST">
+            <input type="email" placeholder="Enter your Email" name="email" required>
+            <input type="text" placeholder="Create a Username" name="username" required>
+            <input type="number" placeholder="Enter your Age" name="age" required>
+            <select name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <input type="password" placeholder="Create a Password" name="password" required>
+            <button type="submit" class="start-button">Sign Up</button>
         </form>
-        <p id="message" style="color: red;"></p>
-    </main>
-    <script>
-        document.getElementById("registerForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            let users = JSON.parse(localStorage.getItem("users")) || [];
+    </div>
 
-            if (users.some(user => user.email === email)) {
-                document.getElementById("message").textContent = "Email is already registered.";
-                return;
-            }
+    <!-- Support Button -->
+    <div class="support">
+        <button>Support</button>
+    </div>
 
-            users.push({ email, password });
-            localStorage.setItem("users", JSON.stringify(users));
-            document.getElementById("message").textContent = "Registration successful! You can now login.";
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
