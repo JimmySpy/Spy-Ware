@@ -1,0 +1,13 @@
+// info.json
+
+{
+    "users": [
+        {
+            "email": "user@example.com",
+            "password": "password123",
+            "username": "username123",
+            "age": 25,
+            "gender": "Male"
+        }
+    ]
+}
